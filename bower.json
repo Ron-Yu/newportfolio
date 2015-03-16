@@ -1,0 +1,22 @@
+{
+  "name": "newPortfolio",
+  "version": "0.0.0",
+  "authors": [
+    "Ron Yu <ronyu77@gmail.com>"
+  ],
+  "description": "test",
+  "keywords": [
+    "test"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~1.11.4"
+  }
+}
