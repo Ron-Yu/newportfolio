@@ -15,30 +15,32 @@ html
 
     //- decide whether semantic-ui.css is usable
     if semantic
-      link(rel="stylesheet", href="css/semantic.css")
+      link(rel="stylesheet", href="assets/lib/css/semantic.css")
 
     link(rel="stylesheet", type="text/css", href="css/basic.css")
     
-    //- decide whether jQuery is usable
-    if jQuery
-      script(type="application/javascript", src="js/jquery.min.js")
-
-    //- decide whether semantic-ui.js usable
-    if semantic
-      script(type="application/javascript", src="js/semantic.js")
-
-    //- decide whether throttle.js usable
-    if throttle
-      script(type="application/javascript", src="js/jquery.ba-throttle-debounce.min.js")
-
-    //- decide whether jquery_ui.js usable
-    if jquery_ui
-      script(type="application/javascript", src="js/jquery-ui.min.js")
-
-    script(type="application/javascript", src="js/basic.js")
+    
   body
     include ../include/sidebar
     #page.pusher
       include ../include/header
       block content
       include ../include/footer
+    //- decide whether jQuery is usable
+    if jQuery
+      script(type="application/javascript", src="assets/lib/js/jquery.js")
+
+    //- decide whether jquery_ui.js usable
+    if jquery_ui
+      script(type="application/javascript", src="assets/lib/js/jquery-ui.min.js")
+
+    //- decide whether semantic-ui.js usable
+    if semantic
+      script(type="application/javascript", src="assets/lib/js/semantic.js")
+
+    //- decide whether throttle.js usable
+    if throttle
+      script(type="application/javascript", src="assets/lib/js/jquery.ba-throttle-debounce.min.js")
+
+    
+    script(type="application/javascript", src="js/basic.js")
