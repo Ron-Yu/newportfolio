@@ -1,5 +1,21 @@
 ## RELEASE NOTES
 
+### Version 1.11.5 - March 23, 2015
+
+This version backports several bugs that were being packed in `2.0` to `1.x`.
+2.0 will be coming in the next 1-2 weeks.
+
+**Bugs**
+- **Build Tools** - Adjusting site.variables will now rebuild all UI, instead of just site.less
+- **Build Tools** - LESS will now throw errors correctly in `watch`
+- **Card** - Fixes dimmer background shorthand property causes transparent dimmer in minified version
+- **Dimmer** - Fixed `variation` setting not working correctly
+- **Dropdown** - `onChange` no longer fires when reselecting same value
+- **Dropdown** - Fix bug where element will not blur on tab key when search selection and no selection made
+- **Dropdown** - Dropdown init on `select` now returns `ui dropdown` created for chaining
+- **Dropdown** - Dropdown `focus` color has been adjusted to match forms more closely
+- **Dropdown** - Fixes IE10 scrollbar width in menu (calc was being precompiled in LESS) **Thanks @gabormeszoly**
+
 ### Version 1.11.3-4 - March 6, 2015
 
 **Enhancements**

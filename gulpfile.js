@@ -21,6 +21,7 @@ var cssFilter = gulpFilter('*.css');
 var imgFilter = gulpFilter(['*.gif', '*.png']);
 
 
+
 //test task
 gulp.task('test', function(){
   console.log("this is a test sentence.");
@@ -93,11 +94,10 @@ gulp.task('image', function () {
 //Watch Task
 //Watches JS
 gulp.task('watch', function(){
-  var server = livereload();
   gulp.watch('native/js/*.js', ['scripts']);
   gulp.watch('native/stylus/**/*.styl', ['styles']);
   gulp.watch('native/**/*.jade', ['templates']);
 });
 
 
-gulp.task('default', ['scripts', 'styles','templates', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'templates', 'watch']);
