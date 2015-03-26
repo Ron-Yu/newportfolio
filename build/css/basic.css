@@ -11,6 +11,8 @@ body .row .x {
 }
 body .row > * {
   text-align: center;
+  -webkit-transition: all 1s ease 0.5s;
+          transition: all 1s ease 0.5s;
 }
 /****
 Navigation menu
