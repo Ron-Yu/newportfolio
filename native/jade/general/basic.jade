@@ -9,28 +9,28 @@ html
       | #{pageTitle}
     meta(charset='utf-8') 
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    //- meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content= metaDesc)
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
 
     //- decide whether semantic-ui.css is usable
     if semantic
       link(rel="stylesheet", href="assets/lib/css/semantic.css")
+    //- decide whether owl.css is usable
+    if owl
+      link(rel="stylesheet", href="assets/lib/css/owl.carousel.min.css")
+      link(rel="stylesheet", href="assets/lib/css/owl.theme.default.css")
+
+    link(rel="stylesheet", type="text/css", href="css/basic.css")
 
     //- decide whether skel.js usable
     if skel
       script(type="application/javascript", src="assets/lib/js/skel.min.js")
-    
-    //- decide whether skel.js usable
-    if skel
       script(type="application/javascript", src="js/init.js")
-
-    link(rel="stylesheet", type="text/css", href="css/basic.css")
-    
-    
+   
   body
-    //- include ../include/sidebar
-    #page.pusher
+    include ../include/sidebar
+    #page.pusher.container
       include ../include/header
       block content
       include ../include/footer
@@ -46,10 +46,19 @@ html
     if semantic
       script(type="application/javascript", src="assets/lib/js/semantic.js")
 
+    //- decide whether owl.js usable
+    if owl
+      script(type="application/javascript", src="assets/lib/js/owl.carousel.min.js")
+
+    if scrolly
+      script(type="application/javascript", src="assets/lib/js/jquery.scrolly.js")
+
+    if scrollex
+      script(type="application/javascript", src="assets/lib/js/jquery.scrollex.js")
+
     //- decide whether throttle.js usable
     if throttle
       script(type="application/javascript", src="assets/lib/js/jquery.ba-throttle-debounce.min.js")
 
-    
     script(type="application/javascript", src="js/basic.js")
     

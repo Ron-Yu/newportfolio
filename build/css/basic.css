@@ -1,58 +1,164 @@
 /****
-General setting
+Animation modules
 ****/
-body #page {
-  max-width: 1680px;
-  margin: 0 auto;
+/**** General setting ****/
+/**** Navigation menu ****/
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
+body {
+  font-family: 'Open Sans', sans-serif;
 }
-body .row .x {
-  border: 1px solid #000;
-  padding: 1.5em 0;
-}
-body .row > * {
-  text-align: center;
-  -webkit-transition: all 1s ease 0.5s;
-          transition: all 1s ease 0.5s;
-}
-/****
-Navigation menu
-****/
 #menu {
   max-width: 1024px;
   margin: 0 auto;
   position: absolute;
-  top: 0px;
+  top: -50px;
+  opacity: 0;
+  -webkit-transition: all 1.5s;
+          transition: all 1.5s;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-  -webkit-transition: all 1s;
-          transition: all 1s;
-  opacity: 0;
-  z-index: 1;
+  z-index: 2;
+}
+#menu.ui.secondary.pointing.menu {
+  border-bottom: none;
+}
+#menu.opened {
+  top: 80px;
+  opacity: 1;
+}
+#menu.fixed {
+  position: fixed;
+  top: 0;
+  -webkit-transition: none;
+          transition: none;
+}
+#menu.ui.menu .item {
+  color: rgba(255,255,255,0.8);
+  -webkit-transition: all 1.5s;
+          transition: all 1.5s;
+}
+#menu.ui.menu .item:hover {
+  color: #00b5ad;
 }
 #m_btn {
   display: none;
 }
-#m_menu {
-  background-color: #f7f7f7;
+/**** Header ****/
+header {
+  height: 100vh;
+  min-height: 800px;
+  background-image: url("../img/bg7.jpg");
+  -webkit-transition: all 5000 ease;
+          transition: all 5000 ease;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
-@media all and (min-width: 769px) {
-  #m_menu.active {
-    display: none;
-  }
+header:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,181,173,0.2);
 }
-@media all and (max-width: 768px) {
-  #menu {
-    display: none;
-  }
-  #m_btn {
-    display: inline-block;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-  }
+header hgroup {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
-/****
-Header
-****/
+header hgroup h1,
+header hgroup h2 {
+  font-weight: normal;
+}
+/**** Main ****/
+main section {
+  min-height: 100vh;
+}
+main section#about {
+  position: relative;
+}
+main section#about .image-show {
+  height: 100vh;
+  position: absolute;
+}
+main section#about .image-show .hover-mask {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.33);
+  z-index: 2;
+}
+main section#about .image-show .slider-nav-control {
+  display: none;
+  font-size: 40px;
+  color: #f00;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+}
+main section#about .image-show .slider-nav-control .chevron.left.icon {
+  cursor: pointer;
+  position: relative;
+  left: 1rem;
+}
+main section#about .image-show .slider-nav-control .chevron.right.icon {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+}
+main section#about .image-show .owl-controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+main section#about .image-show.fixed {
+  position: fixed;
+  top: 0;
+}
+main section#about .image-show.finishFixed {
+  bottom: 0;
+}
+main section#about .image-show .slider-item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 100vh;
+}
+main section#about .image-show .slider-item#slider-item1 {
+  background-image: url("../img/bg1.jpg");
+}
+main section#about .image-show .slider-item#slider-item2 {
+  background-image: url("../img/bg2.jpg");
+}
+main section#about .image-show .slider-item#slider-item3 {
+  background-image: url("../img/bg3.jpg");
+}
+main section#about .desc {
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 100px;
+}
+main section#skill {
+  background-color: #00b5ad;
+}
+main section#portfolio {
+  background-color: #008000;
+}
+/**** Footer ****/
