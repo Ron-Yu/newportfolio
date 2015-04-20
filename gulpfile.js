@@ -1,5 +1,8 @@
 var gulp = require('gulp'),
     uglyfly = require('gulp-uglyfly'),
+    sass = require('gulp-sass'),
+    compass = require('gulp-compass'),
+    sourcemaps = require('gulp-sourcemaps'),
     stylus = require('gulp-stylus'),
     plumber = require('gulp-plumber'),
     jade = require('gulp-jade'),
@@ -59,6 +62,32 @@ gulp.task('scripts', function(){
     .pipe(notify("Scripts uglify are done!"));
 });
 
+//compass Task
+//compile
+gulp.task('compass', function() {
+  gulp.src('native/sass/**/*.sass')
+    .pipe(plumber())
+    .pipe(compass({
+      css: 'build/css',
+      sass: 'native/sass',
+      sourcemaps: true
+    }))
+    .pipe(prefix())
+    .pipe(gulp.dest('build/css'))
+    .pipe(notify("Compass complie complete!"));
+});
+
+//Sass Task
+//compile
+gulp.task('sass', function () {
+    gulp.src('native/sass/**/*.sass')
+        .pipe(plumber())
+        .pipe(sass({indentedSyntax: true}))
+        .pipe(prefix())
+        .pipe(gulp.dest('build/css'))
+        .pipe(notify("Sass complie complete!"));
+});
+
 //Styles Task
 //compile 
 gulp.task('styles', function () {
@@ -97,7 +126,8 @@ gulp.task('watch', function(){
   gulp.watch('native/js/*.js', ['scripts']);
   gulp.watch('native/stylus/**/*.styl', ['styles']);
   gulp.watch('native/**/*.jade', ['templates']);
+  gulp.watch('native/sass/**/*.sass', ['compass']);
 });
 
 
-gulp.task('default', ['scripts', 'styles', 'templates', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'compass','templates', 'watch']);

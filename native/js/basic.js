@@ -65,12 +65,9 @@ $(function() {
     event.preventDefault();
     if ($menu.hasClass('fixed')) {
       $(this).css('color', '#fff');
-    };
+    }
   });
  
-
-
-
 
   /* show sidebar whem user clicks mobile menu */ 
   $m_btn.on('click', function() {
@@ -98,7 +95,7 @@ $(function() {
     items: 1
   });
 
-
+  
   /* show .slider-nav-control when .image-show is hovered */
   (function() {
     var sliderNavControl = $('.slider-nav-control'),
@@ -109,9 +106,14 @@ $(function() {
       function() {
         sliderNavControl.fadeIn('slow');
         hoverMask.fadeIn('slow');
+        $('.owl-carousel').trigger('stop.owl.autoplay');
       }, function() {
         sliderNavControl.fadeOut('slow');
         hoverMask.fadeOut('slow');
+        function autoPlay() {
+          $('.owl-carousel').trigger('play.owl.autoplay');
+        }
+        setTimeout(autoPlay, 2000);
       }
     );
 
@@ -134,7 +136,7 @@ $(function() {
 
   
 
-  /* fix .image-show until .desc is  */
+  /* fix .image-show until finishing .desc content  */
   function makeSliderFixed() {
     var scrollTop          = $(window).scrollTop(),
         windowHeight       = $(window).height(),
@@ -155,6 +157,22 @@ $(function() {
   });
   
 
+
+  function circleAnimate() {
+    $('#circle').circleProgress({
+        value: 0.3,
+        size: 100,
+        startAngle: 5,
+        thickness: 10,
+        lineCap: 'round',
+        fill: {
+            gradient: ["red", "orange"]
+        }
+    });
+  }
+
   
+  
+  setTimeout(circleAnimate, 5000);
 
 });

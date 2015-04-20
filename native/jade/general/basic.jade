@@ -34,19 +34,16 @@ html
       include ../include/header
       block content
       include ../include/footer
-    //- decide whether jQuery is usable
+    
     if jQuery
       script(type="application/javascript", src="assets/lib/js/jquery.js")
-
-    //- decide whether jquery_ui.js usable
+    
     if jquery_ui
       script(type="application/javascript", src="assets/lib/js/jquery-ui.min.js")
 
-    //- decide whether semantic-ui.js usable
     if semantic
       script(type="application/javascript", src="assets/lib/js/semantic.js")
 
-    //- decide whether owl.js usable
     if owl
       script(type="application/javascript", src="assets/lib/js/owl.carousel.min.js")
 
@@ -56,9 +53,15 @@ html
     if scrollex
       script(type="application/javascript", src="assets/lib/js/jquery.scrollex.js")
 
-    //- decide whether throttle.js usable
     if throttle
       script(type="application/javascript", src="assets/lib/js/jquery.ba-throttle-debounce.min.js")
+
+    if jquery_knob
+      script(type="application/javascript", src="assets/lib/js/jquery.knob.js")
+
+    if circle_progress
+      script(type="application/javascript", src="assets/lib/js/circle-progress.js")
+
 
     script(type="application/javascript", src="js/basic.js")
     

@@ -29,7 +29,7 @@ body
   transition all 1.5s
   left 50%
   transform translateX(-50%)
-  z-index 2
+  z-index 10
   &.ui.secondary.pointing.menu
     border-bottom none
 
@@ -105,7 +105,7 @@ main
         .slider-nav-control
           display none
           font-size 40px
-          color red
+          color rgba(255, 255, 255, 0.6)
           width 100%
           position absolute
           top 50%
@@ -142,11 +142,32 @@ main
             background-image: url("../img/bg3.jpg")
       .desc
         min-height 100vh
+        background-color transparent
+        padding 100px 150px
+        .inner-desc:not(:last-child)
+          margin-bottom 50px
+        h3
+          margin-bottom 50px
+          
+    &#skill
+      position relative
+      .gallery-container
+        min-height 100vh
         background-color white
-        padding 100px
-        
-    &#skill 
-      background-color #00B5AD
+      .choice-container
+        height 100vh
+        position absolute
+        right 0
+        background-color white
+        .row
+          height 100vh
+          padding-top calc((100vh - 50vw)/2)
+         .choice-item
+           height 25vw
+           padding 1.5rem
+           .choice-inner
+             background-color #C3C3C3
+             height 100%
     &#portfolio
       background-color green
 

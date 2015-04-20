@@ -1,0 +1,12 @@
+#example {
+  color: black;
+}
+#example:visited {
+  color: yellow;
+}
+#example:hover {
+  color: white;
+}
+#example:active {
+  color: red;
+}

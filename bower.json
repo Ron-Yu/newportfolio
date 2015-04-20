@@ -25,7 +25,9 @@
     "jquery.scrollex": "~0.2.0",
     "scrolly": "https://github.com/Victa/scrolly.git",
     "parallax": "https://github.com/pixelcog/parallax.js/",
-    "parallax.js": "~1.3.2"
+    "parallax.js": "~1.3.2",
+    "jquery-knob": "~1.2.11",
+    "jquery-circle-progress": "~1.1.2"
   },
   "overrides": {
     "jquery-throttle-debounce": {
