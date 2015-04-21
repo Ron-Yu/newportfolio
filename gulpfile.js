@@ -1,9 +1,11 @@
 var gulp = require('gulp'),
     uglyfly = require('gulp-uglyfly'),
     sass = require('gulp-sass'),
+    bourbon = require('node-bourbon'),
     compass = require('gulp-compass'),
     sourcemaps = require('gulp-sourcemaps'),
     stylus = require('gulp-stylus'),
+    nib = require('nib'),
     plumber = require('gulp-plumber'),
     jade = require('gulp-jade'),
     livereload = require('gulp-livereload'),
@@ -82,7 +84,9 @@ gulp.task('compass', function() {
 gulp.task('sass', function () {
     gulp.src('native/sass/**/*.sass')
         .pipe(plumber())
-        .pipe(sass({indentedSyntax: true}))
+        .pipe(sass({
+          indentedSyntax: true
+        }))
         .pipe(prefix())
         .pipe(gulp.dest('build/css'))
         .pipe(notify("Sass complie complete!"));
@@ -93,8 +97,10 @@ gulp.task('sass', function () {
 gulp.task('styles', function () {
   gulp.src('native/stylus/**/*.styl')
     .pipe(plumber())
-    .pipe(stylus())
+    .pipe(sourcemaps.init())
+    .pipe(stylus({use: nib()}))
     .pipe(prefix())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/css'))
     .pipe(notify("Styles complie complete!"));
 });
@@ -126,8 +132,8 @@ gulp.task('watch', function(){
   gulp.watch('native/js/*.js', ['scripts']);
   gulp.watch('native/stylus/**/*.styl', ['styles']);
   gulp.watch('native/**/*.jade', ['templates']);
-  gulp.watch('native/sass/**/*.sass', ['compass']);
+  // gulp.watch('native/sass/**/*.sass', ['sass']);
 });
 
 
-gulp.task('default', ['scripts', 'styles', 'compass','templates', 'watch']);
+gulp.task('default', ['scripts', 'styles','templates', 'watch']);
