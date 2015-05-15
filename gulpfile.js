@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     notify = require("gulp-notify"),
     clean = require('gulp-clean'),
+    minifyCss = require('gulp-minify-css'),
     gulpFilter = require('gulp-filter'),
     mainBowerFiles = require('main-bower-files');
 
@@ -20,6 +21,8 @@ var js_dest_path = 'build/assets/lib/js';
 var css_dest_path = 'build/assets/lib/css';
 var img_for_fancybox = 'assets/lib/css';
 var themes_for_semantic_ui = 'bower_components/semantic-ui/dist/themes/**/*';
+var materialize_sass_path = 'bower_components/materialize/sass/**/*';
+var materialize_font_path = 'bower_components/materialize/font/**/*';
 
 var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter('*.css');
@@ -53,6 +56,19 @@ gulp.task('semanticUiThemes', function() {
 
 });
 
+// export materialize sass files to where we want
+gulp.task('materializeSass', function() {
+  return gulp.src(materialize_sass_path, { base: 'bower_components' })
+        .pipe(gulp.dest('build/assets/lib'));
+
+});
+
+gulp.task('materializFont', function() {
+  return gulp.src(materialize_font_path, { base: 'bower_components/materialize' })
+        .pipe(gulp.dest('build/assets/lib/css'));
+
+});
+
 
 // Sctipt Task
 // Uglifies
@@ -66,18 +82,18 @@ gulp.task('scripts', function(){
 
 //compass Task
 //compile
-gulp.task('compass', function() {
-  gulp.src('native/sass/**/*.sass')
-    .pipe(plumber())
-    .pipe(compass({
-      css: 'build/css',
-      sass: 'native/sass',
-      sourcemaps: true
-    }))
-    .pipe(prefix())
-    .pipe(gulp.dest('build/css'))
-    .pipe(notify("Compass complie complete!"));
-});
+// gulp.task('compass', function() {
+//   gulp.src('native/sass/**/*.sass')
+//     .pipe(plumber())
+//     .pipe(compass({
+//       css: 'build/css',
+//       sass: 'native/sass',
+//       sourcemaps: true
+//     }))
+//     .pipe(prefix())
+//     .pipe(gulp.dest('build/css'))
+//     .pipe(notify("Compass complie complete!"));
+// });
 
 //Sass Task
 //compile
@@ -90,6 +106,15 @@ gulp.task('sass', function () {
         .pipe(prefix())
         .pipe(gulp.dest('build/css'))
         .pipe(notify("Sass complie complete!"));
+});
+
+//mateiralize compile task
+//compile 
+gulp.task('materializeSassCompile', function () {
+    gulp.src('build/assets/lib/materialize/sass/**/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('build/assets/lib/css'))
+        .pipe(notify("materializeSass complie complete!"));
 });
 
 //Styles Task

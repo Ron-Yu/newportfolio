@@ -15,13 +15,19 @@ Animation modules
 /**** Navigation menu ****/
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:300')
+// @import url('http://fonts.googleapis.com/css?family=Merriweather:400,300');
+
+@font-face
+   font-family Merriweather
+   font-style normal
+   src url('http://fonts.googleapis.com/css?family=Merriweather:400,300')
 
 body
-  font-family 'Open Sans', sans-serif
+  font-family Merriweather, sans-serif
 
 //normal menu
 #menu
-  max-width 1022px
+  max-width 1024px
   margin 0 auto
   position absolute
   top -50px
@@ -82,6 +88,7 @@ header
     transform translateX(-50%)
     h1, h2
       font-weight normal
+      font-family Merriweather, sans-serif
       
 
 
@@ -132,49 +139,72 @@ main
         .slider-item
           background-size cover
           background-repeat no-repeat
-          background-position: 50% 50%
+          background-position 50% 50%
           height 100vh
           &#slider-item1
-            background-image: url("../img/bg1.jpg")
+            background-image url("../img/bg1.jpg")
+            background-color raga(blue,0.8)
+            background-blend-mode overlay
           &#slider-item2
-            background-image: url("../img/bg2.jpg")
+            background-image url("../img/bg2.jpg")
           &#slider-item3
-            background-image: url("../img/bg3.jpg")
+            background-image url("../img/bg3.jpg")
       .desc
-        min-height 100vh
+        min-height 200vh
         background-color transparent
         padding 100px 150px
-        .inner-desc:not(:last-child)
-          margin-bottom 50px
-        h3
-          margin-bottom 50px
+        .big-head
+          margin-bottom 5rem
+          text-align center
+          img
+            border-radius 100%
+        h2, p, li
+          font-family Merriweather
+        h2
+          margin-bottom 3rem
+          font-weight normal
           
     &#skill
       position relative
       .gallery-container
-        min-height 100vh
         background-color white
+        .gallery-inner-container
+          height 100vh
+          & > .row
+            height 100vh
+            // padding 10%
+            & > div[class*="u"]
+             height 50%
+             text-align center
       .choice-container
         height 100vh
+        // padding 100px
         position absolute
         right 0
         background-color white
         .row
           height 100vh
-          padding-top calc((100vh - 50vw)/2)
+          // padding-top calc((100vh - 50vw)/2)
          .choice-item
-           height 25vw
-           padding 1.5rem
+           // height 25vw
+           // padding 1.5rem
            .choice-inner
              background-color #C3C3C3
-             height 100%
+             // height 100%
+             text-align center
+             img
+               width 100%
+               margin-top 1rem
     &#portfolio
       background-color green
 
 
 
 
-
+//ui
+#about
+  .ui.divider
+    margin 3rem 0 
 
 
 

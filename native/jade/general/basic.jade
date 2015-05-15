@@ -13,17 +13,20 @@ html
     meta(name='description', content= metaDesc)
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
 
-    //- decide whether semantic-ui.css is usable
+    
     if semantic
       link(rel="stylesheet", href="assets/lib/css/semantic.css")
-    //- decide whether owl.css is usable
+    
     if owl
       link(rel="stylesheet", href="assets/lib/css/owl.carousel.min.css")
       link(rel="stylesheet", href="assets/lib/css/owl.theme.default.css")
+    
+    if githubjs
+      link(rel="stylesheet", href="assets/lib/css/github.min.css")
 
     link(rel="stylesheet", type="text/css", href="css/basic.css")
 
-    //- decide whether skel.js usable
+    
     if skel
       script(type="application/javascript", src="assets/lib/js/skel.min.js")
       script(type="application/javascript", src="js/init.js")
@@ -62,6 +65,11 @@ html
     if circle_progress
       script(type="application/javascript", src="assets/lib/js/circle-progress.js")
 
+    if githubjs
+      script(type="application/javascript", src="assets/lib/js/underscore.js")
+      script(type="application/javascript", src="assets/lib/js/github.min.js")
+      
+  
 
     script(type="application/javascript", src="js/basic.js")
     

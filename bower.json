@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic-ui": "~1.11.5",
+    "semantic-ui": "~1.12.1",
     "jquery-throttle-debounce": "https://github.com/cowboy/jquery-throttle-debounce.git",
     "jquery-ui": "~1.11.4",
     "skel": "~2.2.1",
@@ -27,7 +27,16 @@
     "parallax": "https://github.com/pixelcog/parallax.js/",
     "parallax.js": "~1.3.2",
     "jquery-knob": "~1.2.11",
-    "jquery-circle-progress": "~1.1.2"
+    "jquery-circle-progress": "~1.1.2",
+    "githubjs": "~0.1.3",
+    "underscore": "~1.8.3",
+    "materialize": "~0.96.1"
+  },
+  "install": {
+    "path": {
+      "css": "build/bowerinstalltest/css",
+      "js": "build/bowerinstalltest/js"
+    }
   },
   "overrides": {
     "jquery-throttle-debounce": {
@@ -51,6 +60,15 @@
     },
     "scrolly": {
       "main": "jquery.scrolly.js"
+    },
+    "githubjs": {
+      "main": [
+        "dist/github.min.js",
+        "dist/github.min.css"
+      ]
+    },
+    "materialize": {
+      "main": "dist/js/materialize.js"
     }
   }
 }

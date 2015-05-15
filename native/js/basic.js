@@ -1,9 +1,9 @@
 $(function() {
 
   var $m_btn = $("#m_btn"),
-    $m_menu = $("#m_menu"),
-    $menu = $("#menu"),
-    $window = $(window);
+      $m_menu = $("#m_menu"),
+      $menu = $("#menu"),
+      $window = $(window);
 
   /* header background image animation */
   if (navigator.userAgent.indexOf("Firefox") != -1) {
@@ -159,12 +159,15 @@ $(function() {
 
 
   function circleAnimate() {
-    $('#circle').circleProgress({
-        value: 0.3,
-        size: 100,
+    $('.circle').circleProgress({
+        value: 0.7,
+        size: 150,
         startAngle: 5,
         thickness: 10,
         lineCap: 'round',
+        animation: {
+          duration: 3000
+        },
         fill: {
             gradient: ["red", "orange"]
         }
@@ -172,7 +175,7 @@ $(function() {
   }
 
   
-  
-  setTimeout(circleAnimate, 5000);
+  setTimeout(circleAnimate, 2000);
+
 
 });
